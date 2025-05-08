@@ -13,6 +13,13 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    },server: { //개발서버
+      proxy: { 
+       '/api': { 
+       target:'http://localhost:3000',
+       changeOrigin: true
+      }
+      }
+    }
   },
 })
